@@ -14,7 +14,7 @@ The container needs to be run in privileged mode, to access the host TTY device.
 
 Inside the container, start the VNC server like this:
 
-	/root/bin/start-container.sh```
+	/root/bin/start-container.sh
 
 The start-container.sh script may ask you to set a password for the VNC server.
 
@@ -22,9 +22,11 @@ The start-container.sh script may ask you to set a password for the VNC server.
 
 Start the container as above, then do ```docker ps``` to find the host port corresponding to container port 5901.
 
-	docker ps
-	CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                     NAMES
+```
+docker ps
+CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                     NAMES
 0b52e1de648f        esp8266             "/bin/bash"         25 minutes ago      Up 25 minutes       0.0.0.0:32775->5901/tcp   lonely_archimedes
+```
  
 
 From a regular user, do ```vncviewer 0.0.0.0:32775``` (or corresponding port number). Vncviewer will ask for a password, and use the same password you set above.
