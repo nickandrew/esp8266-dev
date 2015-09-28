@@ -10,11 +10,11 @@ ESPlorer - Java Graphical IDE
 
 The container needs to be run in privileged mode, to access the host TTY device. As the ESPlorer tool is graphical, a VNC server is started and listens on container port 5901. This must be presented as a host port.
 
-    ```docker run -p 5901 --privileged -t -i nickandrew/esp8266 /bin/bash```
+	docker run -p 5901 --privileged -t -i nickandrew/esp8266 /bin/bash
 
 Inside the container, start the VNC server like this:
 
-	```/root/bin/start-container.sh```
+	/root/bin/start-container.sh```
 
 The start-container.sh script may ask you to set a password for the VNC server.
 
@@ -22,10 +22,10 @@ The start-container.sh script may ask you to set a password for the VNC server.
 
 Start the container as above, then do ```docker ps``` to find the host port corresponding to container port 5901.
 
-    ```docker ps
+	docker ps
 	CONTAINER ID        IMAGE               COMMAND             CREATED             STATUS              PORTS                     NAMES
 0b52e1de648f        esp8266             "/bin/bash"         25 minutes ago      Up 25 minutes       0.0.0.0:32775->5901/tcp   lonely_archimedes
-	```
+ 
 
 From a regular user, do ```vncviewer 0.0.0.0:32775``` (or corresponding port number). Vncviewer will ask for a password, and use the same password you set above.
 
